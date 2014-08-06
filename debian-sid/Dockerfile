@@ -1,4 +1,4 @@
-FROM eboraas/private:debootstrap-minbase-sid
+FROM eboraas/debootstrap:minbase-sid
 MAINTAINER Ed Boraas <ed@boraas.ca>
 
 # Based on the manually-generated base image (i.e. a minbase debootstrap), simply ensure
