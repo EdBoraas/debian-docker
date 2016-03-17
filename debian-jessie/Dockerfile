@@ -9,7 +9,7 @@ MAINTAINER Ed Boraas <ed@boraas.ca>
 # mirror and/or security archive changes, necessary for apt-get to be actually executed.
 # As an added bonus, you can use it to check which version of the upstream archives that
 # an image was built against.
-ADD http://http.debian.net/debian/project/trace/ftp-master.debian.org /etc/trace_ftp-master.debian.org
+ADD http://httpredir.debian.org/debian/project/trace/ftp-master.debian.org /etc/trace_ftp-master.debian.org
 ADD http://security.debian.org/project/trace/security-master.debian.org /etc/trace_security-master.debian.org
 RUN apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove && apt-get clean
 
