@@ -13,7 +13,7 @@
 TAGPREFIX=debian:
 
 # Set SUITES to the space-delimited list of suites you wish to build
-SUITES="oldstable stable testing squeeze wheezy jessie sid"
+SUITES="oldstable stable testing wheezy jessie stretch sid"
 
 # Set PUSH to 0 (the default) to build without pushing, or
 # set PUSH to 1 to push each image after it's built, or
