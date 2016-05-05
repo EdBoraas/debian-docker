@@ -11,5 +11,5 @@ MAINTAINER Ed Boraas <ed@boraas.ca>
 # an image was built against.
 ADD http://httpredir.debian.org/debian/project/trace/ftp-master.debian.org /etc/trace_ftp-master.debian.org
 ADD http://security.debian.org/project/trace/security-master.debian.org /etc/trace_security-master.debian.org
-RUN apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove && apt-get clean
+RUN apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
 
