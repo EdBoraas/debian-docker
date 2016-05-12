@@ -27,11 +27,11 @@ PUSH=0
 for suite in ${SUITES}; do 
   /usr/share/docker.io/contrib/mkimage.sh -t ${TAGPREFIX}${suite} debootstrap --variant=minbase ${suite} http://httpredir.debian.org/debian
   if [ ${PUSH} -eq 1 ]; then
-    /usr/bin/docker.io push ${TAGPREFIX}${suite}
+    /usr/bin/docker push ${TAGPREFIX}${suite}
   fi
 done
 
 if [ ${PUSH} -eq 2 ]; then
-  /usr/bin/docker.io push $(echo ${TAGPREFIX}${suite} |cut -f1 -d:)
+  /usr/bin/docker push $(echo ${TAGPREFIX}${suite} |cut -f1 -d:)
 fi
 
