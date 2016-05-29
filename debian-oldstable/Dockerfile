@@ -5,6 +5,9 @@ MAINTAINER Ed Boraas <ed@boraas.ca>
 # everything is up to date, providing a current base image for other Docker images without
 # needing to frequently regenerate the manual base image
 
+# Set apt-get to automatically retry if a package download fails
+RUN echo 'Acquire::Retries "5";' > /etc/apt/apt.conf.d/99AcquireRetries
+
 # The ADD lines below ensurs that the docker build cache is invalidated if the contents of the
 # mirror and/or security archive changes, necessary for apt-get to be actually executed.
 # As an added bonus, you can use it to check which version of the upstream archives that
