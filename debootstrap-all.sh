@@ -14,7 +14,7 @@ TAGPREFIX=debian:
 #TAGPREFIX=eboraas/debootstrap:minbase-
 
 # Set SUITES to the space-delimited list of suites you wish to build
-SUITES="oldstable stable testing wheezy jessie stretch buster sid"
+SUITES="oldstable stable testing unstable stretch buster bullseye sid"
 
 # Set PUSH to 0 (the default) to build without pushing, or
 # set PUSH to 1 to push each image after it's built, or
@@ -26,13 +26,15 @@ PUSH=0
 MKIMAGE=/usr/share/docker.io/contrib/mkimage.sh
 # Using docker-engine (from Docker):
 #MKIMAGE=/usr/share/docker-engine/contrib/mkimage.sh
+# Using a checkout of the git repo (adjust path appropriately):
+#MKIMAGE=/usr/src/docker-ce/components/engine/contrib/mkimage.sh
 
 # Enjoy!
 #
 # -Ed
 
 for suite in ${SUITES}; do 
-  ${MKIMAGE} -t ${TAGPREFIX}${suite} debootstrap --variant=minbase ${suite} http://httpredir.debian.org/debian
+  ${MKIMAGE} -t ${TAGPREFIX}${suite} debootstrap --variant=minbase ${suite} https://deb.debian.org/debian
   if [ ${PUSH} -eq 1 ]; then
     /usr/bin/docker push ${TAGPREFIX}${suite}
   fi
